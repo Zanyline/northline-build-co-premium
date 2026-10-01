@@ -3,3 +3,185 @@
 @media(max-width:700px){:root{--pad:20px}.build-frames:before{filter:blur(14px) brightness(.56) saturate(.9);transform:scale(1.05)}.build-frame{object-fit:contain!important;object-position:center center!important}.wordmark{font-size:13px}.wordmark strong{font-size:15px}.hero{min-height:100svh;padding-bottom:0}.hero-copy{padding-top:14px}.hero h1{font-size:clamp(52px,16vw,72px);line-height:.84;margin-top:24px}.hero-intro{font-size:15px}.button{min-height:54px;padding:0 20px}.hero-actions{gap:18px}.hero-media{height:42vh;min-height:350px}.hero-media img{min-height:350px;height:42vh;object-position:center}.build-story{height:320vh}.build-shade{background:linear-gradient(180deg,rgba(7,24,36,.82),rgba(7,24,36,.1) 56%,rgba(7,24,36,.55))}.build-copy{left:20px;right:20px;top:11vh}.build-copy h2{font-size:clamp(43px,13vw,62px);max-width:430px}.stage-copy{margin-top:18px}.blueprint-grid{background-size:35px 35px}.section{padding:84px 20px}.section-head{margin-bottom:38px}.section-head h2{font-size:clamp(46px,14vw,65px)}.service-row{grid-template-columns:1fr;min-height:0;margin-bottom:22px}.service-media{height:240px}.service-copy{padding:24px 0 32px}.service-copy h3{margin:18px 0 10px;font-size:34px}.projects{padding:84px 20px}.project-card>img{height:48vh;min-height:360px}.project-info{align-items:end}.project-info h3{font-size:31px}.project-meta{gap:10px;flex-wrap:wrap}.project-arrow{top:38%;width:42px;height:42px}.project-count{top:-36px}.compare{height:65vh;max-height:620px}.compare-before img{width:calc(100vw - 40px)}.transform-meta{grid-template-columns:1fr;gap:10px}.philosophy-copy{padding:84px 20px}.philosophy h2{font-size:clamp(40px,12vw,58px)}.philosophy>img{height:420px}.process-blueprint{width:100%;opacity:.05}.process-list{margin-left:8px}.capability-grid{grid-template-columns:1fr 1fr}.capability-grid span{padding:24px 17px}.quote{padding:84px 20px}.quote-form{padding:26px 20px}.quote h2{font-size:clamp(47px,14vw,64px)}.quote-step h3{font-size:24px}.final-cta{height:88svh}.final-copy{left:20px;right:20px;bottom:14vh}.final-copy h2{font-size:clamp(43px,12vw,61px)}.final-copy>div{align-items:flex-start;flex-direction:column}.final-meta{left:20px;right:20px}.footer{padding-bottom:95px}}
 @media(max-width:360px){.hero h1{font-size:48px}.wordmark span{display:none}.capability-grid{grid-template-columns:1fr}.quote-form{padding:22px 16px}.project-card>img{min-height:310px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.build-story{height:auto}.build-sticky{position:relative;height:78svh}.build-frame:not(:first-child){display:none}.build-steps{display:none}}
+
+/* =========================================================
+   MOBILE QA PASS — 2026-10-01
+   Phone-first fixes based on live Samsung/Android testing.
+   Keeps the desktop design untouched.
+   ========================================================= */
+@media (max-width:700px){
+  html,body{max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+  body{padding-bottom:calc(58px + env(safe-area-inset-bottom))}
+
+  /* Stable mobile header + clearly visible menu control */
+  .topbar{
+    padding-inline:18px;
+    background:rgba(242,240,235,.96);
+    border-bottom:1px solid rgba(16,19,21,.08);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px)
+  }
+  .menu-btn{display:grid;place-content:center;flex:0 0 44px;position:relative;z-index:2}
+  .menu-btn span{width:24px;margin:3px 0}
+  .mobile-menu-inner{padding:92px 20px calc(28px + env(safe-area-inset-bottom))}
+  .mobile-menu nav a{font-size:clamp(24px,8vw,31px);padding:15px 0}
+
+  /* Hero: remove grid intrinsic-width overflow and keep the editorial composition */
+  .hero{display:block;min-height:auto;padding:96px 20px 0;overflow:hidden}
+  .hero-copy,.hero-copy>*{min-width:0;max-width:100%}
+  .hero h1{
+    width:100%;
+    font-size:clamp(48px,14.5vw,62px);
+    line-height:.84;
+    letter-spacing:-.065em;
+    margin-top:24px
+  }
+  .eyebrow{max-width:100%;gap:12px;font-size:8px}
+  .hero-intro{width:100%;max-width:440px;font-size:15px}
+  .hero-actions{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:18px;
+    width:100%;
+    align-items:center
+  }
+  .hero-actions .button{width:100%;padding-inline:16px;gap:18px}
+  .text-action{white-space:nowrap}
+  .scroll-cue{margin:46px 0 34px}
+  .hero-media{
+    width:calc(100% + 40px);
+    margin:0 -20px;
+    height:43svh;
+    min-height:330px
+  }
+  .hero-media img{width:100%;height:100%;min-height:0;max-height:none;object-fit:cover}
+
+  /* Construction story: preserve the sequence while making overlays phone-safe */
+  .build-sticky{height:100dvh}
+  .build-copy{left:20px;right:20px;top:max(88px,10svh);max-width:calc(100% - 40px);min-width:0}
+  .build-copy h2{width:100%;max-width:100%;font-size:clamp(38px,11.5vw,50px);line-height:.87;letter-spacing:-.06em}
+  .stage-copy{max-width:min(88vw,360px)}
+  .build-steps{left:20px;bottom:calc(72px + env(safe-area-inset-bottom))}
+
+  /* Global section sizing: no heading is allowed to determine page width */
+  .section,.projects,.quote{max-width:100%;overflow:hidden}
+  .section{padding:76px 20px}
+  .projects{padding:76px 20px}
+  .section-head,.section-head>*{min-width:0;max-width:100%}
+  .section-head{margin-bottom:34px}
+  .section-head h2{
+    width:100%;
+    font-size:clamp(39px,11.5vw,50px);
+    line-height:.88;
+    letter-spacing:-.058em
+  }
+
+  /* Service cards */
+  .service-row,.service-copy{min-width:0}
+  .service-media{height:250px}
+  .service-copy{padding:24px 0 30px}
+  .service-copy h3{font-size:clamp(31px,9vw,38px)}
+
+  /* Project carousel */
+  .project-card,.project-info,.project-meta{min-width:0}
+  .project-card>img{height:52svh;min-height:350px;max-height:540px}
+  .project-info{align-items:flex-end;flex-wrap:wrap}
+  .project-info>span{margin-left:auto}
+  .project-info h3{font-size:clamp(27px,8vw,34px)}
+  .project-meta{row-gap:8px}
+
+  /* Before / after — headings in the live screenshots were the main overflow source */
+  .transformation .section-head h2{
+    font-size:clamp(32px,9.5vw,40px);
+    line-height:.9;
+    letter-spacing:-.052em
+  }
+  .compare{height:min(72svh,620px);min-height:500px}
+  .compare-handle{
+    width:44px;
+    margin-left:-22px;
+    background:transparent
+  }
+  .compare-handle:before{
+    content:"";
+    position:absolute;
+    left:50%;top:0;bottom:0;
+    width:2px;
+    background:#fff;
+    transform:translateX(-50%)
+  }
+  .compare-handle span{z-index:1}
+  .transform-meta{min-width:0}
+
+  /* Approach section — the desktop grid's intrinsic sizing was forcing a ~670px page */
+  .philosophy{display:block;min-height:0;overflow:hidden}
+  .philosophy-copy{width:100%;max-width:100%;min-width:0;padding:76px 20px}
+  .philosophy-copy>*{max-width:100%;min-width:0}
+  .philosophy h2{
+    width:100%;
+    font-size:clamp(35px,10vw,43px);
+    line-height:.9;
+    letter-spacing:-.052em
+  }
+  .philosophy-copy>p:last-of-type{max-width:100%}
+  .philosophy>img{width:100%;height:50svh;min-height:360px;object-fit:cover}
+
+  /* Process + capability */
+  .process-list{min-width:0;margin-left:0;padding-left:8px}
+  .process-list li{grid-template-columns:42px 1fr;gap:14px;padding-left:20px}
+  .process-list h3{font-size:25px}
+  .capability-grid{width:100%;min-width:0;grid-template-columns:1fr 1fr}
+  .capability-grid span{padding:22px 16px;font-size:13px;line-height:1.35}
+  .capability .section-head h2{
+    font-size:clamp(32px,9.5vw,40px);
+    line-height:.9;
+    letter-spacing:-.052em
+  }
+
+  /* Quote form */
+  .quote{display:block;padding:76px 20px}
+  .quote-head,.quote-form{width:100%;min-width:0}
+  .quote-head{margin-bottom:34px}
+  .quote h2{width:100%;font-size:clamp(44px,13vw,56px);line-height:.86}
+  .quote-form{padding:24px 18px}
+  .quote-step h3{font-size:22px;overflow-wrap:break-word}
+  .quote-step>label:not(.field){min-height:50px;align-items:center}
+  .field input,.field textarea{font-size:16px}
+  .quote-nav{gap:10px}
+  .quote-nav .next,.quote-nav .submit{min-height:46px;padding:12px 16px}
+
+  /* Closing scene */
+  .final-cta{height:88dvh;min-height:620px}
+  .final-copy{left:20px;right:20px;bottom:calc(13vh + 58px);max-width:calc(100% - 40px)}
+  .final-copy h2{font-size:clamp(38px,10.8vw,48px);line-height:.88;letter-spacing:-.055em}
+  .final-copy>div{gap:16px}
+  .final-meta{left:20px;right:20px;bottom:calc(18px + 58px + env(safe-area-inset-bottom));gap:12px;flex-wrap:wrap}
+
+  /* Persistent conversion bar + phone safe area */
+  .mobile-contact{
+    height:calc(58px + env(safe-area-inset-bottom));
+    grid-template-columns:1fr 1fr;
+    background:#fff
+  }
+  .mobile-contact button,.mobile-contact a{
+    height:auto;
+    min-height:58px;
+    padding-bottom:env(safe-area-inset-bottom);
+    font-size:16px
+  }
+  .footer{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+}
+
+@media (max-width:340px){
+  .wordmark span{display:none}
+  .hero h1{font-size:46px}
+  .hero-actions{grid-template-columns:1fr;gap:14px;align-items:start}
+  .hero-actions .text-action{justify-self:start}
+  .transformation .section-head h2,.capability .section-head h2{font-size:31px}
+  .philosophy h2{font-size:33px}
+  .capability-grid{grid-template-columns:1fr}
+}
+
+@media (min-width:341px) and (max-width:700px){
+  .wordmark span{display:inline}
+}

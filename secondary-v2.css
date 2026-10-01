@@ -144,3 +144,114 @@ body{background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-s
   .page-hero-image{min-height:46svh}
   .project-cta h2{font-size:48px}
 }
+
+/* =========================================================
+   MOBILE QA PASS — 2026-10-01
+   Secondary pages aligned with the Premium mobile system.
+   ========================================================= */
+@media(max-width:800px){
+  html,body{max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}
+  body{padding-bottom:calc(58px + env(safe-area-inset-bottom))}
+
+  .site-header{padding-inline:18px}
+  .brand,.brand-copy,.page-hero,.page-hero-copy,.page-section,.page-section .inner,
+  .intro-grid,.intro-grid>*,.split-media,.split-copy,.project-story,.about-story,.about-story>*,
+  .enquiry-shell,.full-enquiry{min-width:0;max-width:100%}
+  .menu-toggle{margin-left:auto;flex:0 0 44px;width:44px;height:44px;align-items:center;justify-content:center}
+  .menu-toggle span{width:24px}
+  .mobile-nav{
+    position:fixed;
+    top:68px;
+    left:12px;
+    right:12px;
+    width:auto;
+    max-height:calc(100dvh - 80px);
+    overflow:auto
+  }
+
+  /* Put content first on service pages, then imagery — same rhythm as the homepage. */
+  .page-hero{display:flex;flex-direction:column;min-height:0}
+  .page-hero-copy{order:1;width:100%;padding:54px 20px 56px}
+  .page-hero-image{order:2;width:100%;min-height:46svh}
+  .page-hero h1{
+    width:100%;
+    max-width:100%;
+    font-size:clamp(44px,13vw,58px);
+    line-height:.86;
+    letter-spacing:-.058em
+  }
+  .page-hero-copy>p:not(.eyebrow){max-width:100%;font-size:15px}
+
+  .page-section{width:100%;padding:74px 20px}
+  .intro-grid{grid-template-columns:1fr!important;gap:30px!important;width:100%}
+  .intro-grid h2,.split-copy h2,.project-story h2,.enquiry-copy h2,.page-heading{
+    font-size:clamp(38px,11vw,50px);
+    line-height:.9;
+    letter-spacing:-.05em;
+    max-width:100%
+  }
+  .intro-grid .lead{font-size:clamp(20px,6vw,26px)}
+
+  .service-benefits,.promise-grid{grid-template-columns:1fr!important;margin-top:46px}
+  .service-benefits article,.promise-grid article{padding:26px 0!important;border-right:0!important}
+
+  .split-media,.split-media.reverse{display:flex;flex-direction:column;min-height:0}
+  .split-media img{width:100%;height:46svh;min-height:340px;object-fit:cover}
+  .split-copy{width:100%;padding:58px 20px}
+
+  .detail-band .inner{grid-template-columns:1fr 1fr}
+  .project-index{grid-template-columns:1fr!important}
+  .project-card{min-width:0}
+  .project-card img{height:42svh;min-height:280px}
+  .project-story{grid-template-columns:1fr!important}
+  .gallery-two{grid-template-columns:1fr!important}
+  .gallery-two img{height:42svh;min-height:300px}
+  .project-challenge{grid-template-columns:1fr!important}
+  .process-long{grid-template-columns:1fr!important}
+
+  .about-story{grid-template-columns:1fr!important;gap:38px!important}
+  .about-story img{width:100%;height:52svh;min-height:380px;object-fit:cover}
+  .about-story h2{font-size:clamp(42px,12vw,54px);line-height:.88}
+  .principles{grid-template-columns:1fr!important}
+
+  .enquiry-shell{grid-template-columns:1fr!important}
+  .enquiry-copy{position:static!important}
+  .full-enquiry{width:100%;padding:26px 20px}
+  .form-grid{grid-template-columns:1fr!important}
+  .field.full{grid-column:auto}
+  .full-enquiry input,.full-enquiry select,.full-enquiry textarea{font-size:16px}
+
+  .project-cta{padding:72px 20px}
+  .project-cta h2{font-size:clamp(40px,11.5vw,52px);line-height:.88}
+
+  .site-footer{padding:44px 20px calc(92px + env(safe-area-inset-bottom))}
+
+  /* Match homepage's two-option sticky action bar. */
+  .mobile-action-bar{
+    height:calc(58px + env(safe-area-inset-bottom));
+    grid-template-columns:1fr 1fr;
+    background:#fff
+  }
+  .mobile-action-bar>*{
+    min-height:58px;
+    height:auto;
+    padding-bottom:env(safe-area-inset-bottom);
+    font-size:14px
+  }
+  .mobile-action-bar>*:first-child{display:none}
+  .mobile-action-bar button{background:#fff;color:var(--ink)}
+  .mobile-action-bar a{background:var(--accent-dark);color:#fff}
+}
+
+@media(max-width:380px){
+  .brand-copy small{display:none}
+  .page-hero h1{font-size:44px}
+  .intro-grid h2,.split-copy h2,.project-story h2,.enquiry-copy h2,.page-heading{font-size:38px}
+  .project-cta h2{font-size:40px}
+  .detail-band .inner{grid-template-columns:1fr}
+  .detail-band div{border-right:0!important}
+}
+
+@media (min-width:341px) and (max-width:800px){
+  .brand-copy small{display:inline}
+}
