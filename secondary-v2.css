@@ -1,0 +1,146 @@
+/* Northline V2 — secondary-page visual system
+   Keeps legacy page structure, replaces the original orange demo skin. */
+:root{
+  --paper:#f2f0eb;
+  --paper2:#f8f7f3;
+  --ink:#101315;
+  --muted:#686d70;
+  --line:#d4d2cb;
+  --accent:#185b91;
+  --accent-dark:#0f4777;
+  --white:#fff;
+  --dark:#101517;
+  --max:1440px;
+  --pad:clamp(20px,4.8vw,76px);
+}
+html{scroll-padding-top:78px}
+body{background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+.page-main h1,.page-main h2,.page-main h3,.thanks-page h1,.site-footer strong{font-family:Arial,Helvetica,sans-serif!important}
+.page-main h1,.page-main h2,.thanks-page h1{font-weight:800!important}
+
+/* Header — match Premium V2 */
+.site-header{height:78px;padding:0 var(--pad);background:rgba(242,240,235,.96);border-bottom:1px solid rgba(16,19,21,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:none}
+.site-header.scrolled{background:rgba(242,240,235,.96);border-bottom:1px solid rgba(16,19,21,.1);box-shadow:none}
+.brand{gap:0;margin-right:auto}
+.brand-mark{display:none!important}
+.brand-copy{flex-direction:row;align-items:baseline;gap:8px}
+.brand-copy strong{font-family:Arial,Helvetica,sans-serif!important;font-size:17px;letter-spacing:.11em;font-weight:800}
+.brand-copy small{font-size:14px;letter-spacing:.11em;font-weight:400;margin:0}
+.brand-copy small:before{content:"/ ";}
+.desktop-nav{gap:34px;font-size:12px}
+.desktop-nav a:after{background:var(--blue,var(--accent));bottom:-8px}
+.desktop-nav a[aria-current="page"]:after{width:100%;background:var(--accent)}
+.header-cta{margin-left:44px;background:var(--accent-dark);height:50px;padding:0 27px;font-size:10px;letter-spacing:.11em;border:1px solid var(--accent-dark);transition:background .2s,border-color .2s}
+.header-cta:hover{background:var(--ink);border-color:var(--ink)}
+.menu-toggle span{background:var(--ink)}
+
+/* Buttons / links */
+.btn{border-radius:0;border-color:#a8aaa6;min-height:50px;padding:0 24px;letter-spacing:.11em;text-transform:uppercase}
+.btn.primary{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
+.btn.primary:hover{background:var(--ink);border-color:var(--ink)}
+.text-link,.plain-button{color:var(--accent-dark)}
+
+/* Page hero */
+.page-main{padding-top:78px;background:var(--paper)}
+.page-hero{min-height:calc(100svh - 78px);grid-template-columns:42% 58%;background:var(--paper);border-bottom:1px solid var(--line)}
+.page-hero-copy{padding:120px 4vw 70px var(--pad);align-self:center}
+.eyebrow{font-size:9px;letter-spacing:.18em;font-weight:700;color:var(--accent-dark);margin-bottom:24px;text-transform:uppercase}
+.page-hero h1{font-size:clamp(58px,7vw,108px);line-height:.84;letter-spacing:-.065em;margin:22px 0 26px}
+.page-hero-copy>p:not(.eyebrow){font-size:16px;line-height:1.65;color:#50565a;max-width:590px}
+.page-hero-image{min-height:calc(100svh - 78px);background-position:center;background-size:cover}
+.page-hero-image:after{background:linear-gradient(90deg,rgba(16,19,21,.02),rgba(16,19,21,.08))}
+.page-hero-meta{left:28px;bottom:28px;background:rgba(16,21,23,.78);padding:10px 12px;border-left:2px solid #8dc9ee}
+
+/* Main editorial sections */
+.page-section{max-width:var(--max);padding:110px var(--pad);border-bottom:1px solid var(--line);background:var(--paper)}
+.page-section.dark{max-width:none;background:var(--dark);color:#f5f3ed}
+.page-section.dark>.inner{max-width:var(--max)}
+.intro-grid{grid-template-columns:.9fr 1.25fr;gap:9vw}
+.intro-grid h2,.split-copy h2,.project-story h2,.enquiry-copy h2,.page-heading{letter-spacing:-.055em}
+.intro-grid h2{font-size:clamp(42px,4.8vw,72px);line-height:.93}
+.intro-grid .lead{font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(21px,2vw,32px);line-height:1.28;font-weight:600}
+.intro-grid p,.split-copy p,.project-story p,.enquiry-copy p{color:var(--muted);line-height:1.75}
+.dark .intro-grid p,.dark .split-copy p{color:#b8c0c4}
+.service-benefits,.promise-grid{border-top:1px solid var(--line);margin-top:64px}
+.service-benefits span,.promise-grid span,.project-challenge span,.process-long .step-no,.principles span{color:var(--accent);font-weight:700}
+.service-benefits h3,.promise-grid h3{font-family:Arial,Helvetica,sans-serif!important;font-size:23px;margin-top:32px}
+
+/* Split service section */
+.split-media{min-height:620px;background:var(--paper2)}
+.split-media img{min-height:620px}
+.split-copy{background:var(--paper2);padding:90px clamp(30px,6vw,100px)}
+.split-copy h2{font-size:clamp(42px,4.8vw,72px);line-height:.92}
+.check-list li{padding:16px 0;font-size:12px}
+.check-list li:after{color:var(--accent)}
+
+/* Dark CTA / closing rhythm */
+.project-cta{position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(9,15,17,.90),rgba(9,15,17,.62)),url('assets/sequence/desktop/10-complete-dusk.webp') center/cover no-repeat;color:#fff;padding:95px var(--pad)}
+.project-cta:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,14,16,.60),transparent 70%);pointer-events:none}
+.project-cta>*{position:relative;z-index:1}
+.project-cta .eyebrow{color:#b9d9ed}
+.project-cta h2{font-family:Arial,Helvetica,sans-serif!important;font-weight:800;font-size:clamp(48px,6vw,88px);line-height:.86;letter-spacing:-.06em}
+.project-cta .btn.primary,.project-cta .light-cta{background:transparent;border-color:rgba(255,255,255,.7);color:#fff}
+.project-cta .btn.primary:hover,.project-cta .light-cta:hover{background:#fff;color:var(--ink)}
+
+/* Project index / case studies */
+.project-index{gap:24px}
+.project-card{border-bottom:1px solid var(--line)}
+.project-card h2{font-family:Arial,Helvetica,sans-serif!important;font-weight:800;letter-spacing:-.045em}
+.project-card:hover h2{color:var(--accent-dark)}
+.project-card .project-no{color:var(--accent-dark);font-weight:700}
+.project-hero h1{font-family:Arial,Helvetica,sans-serif!important;font-weight:800;letter-spacing:-.065em}
+.project-story .story-copy .lead,.project-quote q{font-family:Arial,Helvetica,sans-serif!important}
+.project-challenge article{background:var(--paper2)}
+.project-challenge h3,.process-long h3,.about-story h2,.principles h3,.full-enquiry .form-step h3{font-family:Arial,Helvetica,sans-serif!important}
+.detail-band{background:var(--dark)}
+
+/* About */
+.about-story{gap:80px}
+.about-story h2{font-weight:800;letter-spacing:-.06em}
+.principles article{background:var(--paper2)}
+
+/* Forms */
+.enquiry-copy h2{font-weight:800;letter-spacing:-.06em}
+.full-enquiry{background:var(--paper2);border:1px solid var(--line);padding:48px}
+.full-enquiry input,.full-enquiry select,.full-enquiry textarea{border-radius:0!important}
+
+/* Footer — same language as homepage */
+.site-footer{background:#0b1012;color:#d9ddde;padding:54px var(--pad) 38px;border-top:0}
+.site-footer .brand-copy strong,.site-footer .brand-copy small{color:#fff}
+.site-footer nav a:hover{color:#fff}
+.site-footer .footer-brand>p{font-size:12px;line-height:1.35;letter-spacing:.03em;color:#fff}
+.site-footer .footer-contact p,.site-footer .demo-note{color:#9fa7aa}
+.site-footer .demo-note{border-top:1px solid #293034;padding-top:22px;margin-top:26px}
+
+/* Mobile quick actions */
+.mobile-action-bar button,.mobile-action-bar a{border-radius:0}
+.mobile-action-bar button{background:#fff;color:var(--ink)}
+.mobile-action-bar a{background:var(--accent-dark);color:#fff}
+.mobile-nav{background:var(--dark);color:#fff}
+.mobile-nav a{border-color:#30383b}
+.mobile-nav .btn.primary{background:transparent;border-color:#fff}
+
+/* Thank-you / 404 */
+.thanks-page{background:var(--paper);padding-top:120px}
+.thanks-card .eyebrow{color:var(--accent-dark)}
+
+@media(max-width:800px){
+  .site-header{height:68px;padding:0 20px}
+  .page-main{padding-top:68px}
+  .brand-copy strong{font-size:15px}.brand-copy small{font-size:12px}
+  .page-hero{min-height:auto;grid-template-columns:1fr}
+  .page-hero-image{order:1;min-height:52svh}
+  .page-hero-copy{order:2;padding:58px 20px 64px}
+  .page-hero h1{font-size:clamp(52px,15vw,72px)}
+  .page-section{padding:78px 20px}
+  .split-media,.split-media.reverse{grid-template-columns:1fr}
+  .split-media img{min-height:420px}
+  .split-copy{padding:65px 20px}
+  .project-cta{padding:78px 20px}
+  .full-enquiry{padding:28px 20px}
+  .site-footer{padding:46px 20px 100px}
+}
+@media(max-width:500px){
+  .page-hero-image{min-height:46svh}
+  .project-cta h2{font-size:48px}
+}
