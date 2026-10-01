@@ -285,3 +285,41 @@ body{background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-s
 
   .mobile-action-bar{left:0!important;right:0!important;width:100%!important;max-width:100%!important}
 }
+
+/* =========================================================
+   FLUID RESPONSIVE V3 — secondary pages
+   ========================================================= */
+@media (max-width: 820px){
+  html,body{inline-size:100%;max-inline-size:100%;overflow-x:clip!important;overscroll-behavior-x:none}
+  body{min-inline-size:0}
+  .page-main{inline-size:100%;max-inline-size:100%;min-inline-size:0;overflow-x:clip!important;contain:inline-size}
+  img,video,svg,canvas,iframe{max-inline-size:100%}
+
+  .site-header{inline-size:100%;max-inline-size:100%;padding-inline:clamp(16px,5vw,22px);gap:8px}
+  .brand{min-inline-size:0;max-inline-size:calc(100% - 54px);overflow:hidden}
+  .menu-toggle{flex:0 0 44px;margin-left:auto}
+
+  .page-hero{display:block;inline-size:100%;max-inline-size:100%;overflow:clip}
+  .page-hero-copy{inline-size:100%;max-inline-size:100%;min-inline-size:0;padding-inline:clamp(20px,6vw,28px);container-type:inline-size}
+  .page-hero-copy h1{inline-size:100%;max-inline-size:100%;font-size:clamp(44px,17cqw,78px);line-height:.88}
+  .page-hero-image{inline-size:100%;max-inline-size:100%}
+
+  .page-section,.page-section>.inner,.intro-grid,.split-media,.split-copy,
+  .detail-band,.detail-band .inner,.project-index,.project-card,.project-story,
+  .gallery-two,.project-challenge,.process-long,.about-story,.principles,
+  .enquiry-shell,.full-enquiry,.form-grid{
+    inline-size:100%;max-inline-size:100%;min-inline-size:0
+  }
+
+  .page-section{padding-inline:clamp(20px,6vw,28px);overflow:clip}
+  .intro-grid,.split-copy,.project-story,.about-story,.enquiry-shell{container-type:inline-size}
+  .intro-grid h2,.split-copy h2,.project-story h2,.about-story h2,.enquiry-shell h2,
+  .page-section h2{max-inline-size:100%;font-size:clamp(32px,12cqw,52px);line-height:.92;letter-spacing:-.045em}
+
+  .service-benefits,.promise-grid,.detail-band .inner,.project-index,.project-story,
+  .gallery-two,.project-challenge,.process-long,.about-story,.principles,.enquiry-shell,.form-grid{
+    grid-template-columns:minmax(0,1fr)!important
+  }
+
+  .mobile-action-bar{inset-inline:0!important;inline-size:100%!important;max-inline-size:100%!important}
+}

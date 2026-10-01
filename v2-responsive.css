@@ -242,3 +242,88 @@
   .transformation .section-head h2,
   .capability .section-head h2{font-size:29px!important}
 }
+
+/* =========================================================
+   FLUID RESPONSIVE V3 — automatic phone/tablet fitting
+   Uses container width rather than fixed viewport guesses.
+   ========================================================= */
+@media (max-width: 820px){
+  :root{--mobile-pad:clamp(16px,5.4cqw,22px)}
+  html,body{inline-size:100%;max-inline-size:100%;overflow-x:clip!important;overscroll-behavior-x:none}
+  body{min-inline-size:0}
+  main{inline-size:100%;max-inline-size:100%;min-inline-size:0;overflow-x:clip!important;contain:inline-size}
+  img,video,svg,canvas,iframe{max-inline-size:100%}
+
+  .topbar,.mobile-menu,.hero,.build-story,.build-sticky,.section,.projects,
+  .philosophy,.process,.capability,.quote,.final-cta,.footer,.mobile-contact{
+    max-inline-size:100%;min-inline-size:0
+  }
+
+  /* Header */
+  .topbar{inline-size:100%;padding-inline:var(--mobile-pad);gap:8px}
+  .wordmark{max-inline-size:calc(100% - 54px);min-inline-size:0;overflow:hidden}
+  .menu-btn{flex:0 0 44px;margin-left:auto}
+
+  /* Hero: no negative margins or width expansion. */
+  .hero{display:block;inline-size:100%;padding:96px 0 0;overflow:clip;container-type:inline-size}
+  .hero-copy{inline-size:100%;min-inline-size:0;padding-inline:var(--mobile-pad);container-type:inline-size}
+  .hero-copy>*{max-inline-size:100%;min-inline-size:0}
+  .hero h1{inline-size:100%;font-size:clamp(42px,14.2cqw,62px);line-height:.84;letter-spacing:-.064em}
+  .hero-intro{inline-size:100%;font-size:clamp(14px,4.4cqw,16px)}
+  .hero-actions{inline-size:100%;grid-template-columns:minmax(0,1fr) auto;gap:clamp(12px,4cqw,18px)}
+  .hero-actions .button{min-inline-size:0;inline-size:100%;padding-inline:clamp(12px,4cqw,18px);gap:14px}
+  .hero-actions .text-action{min-inline-size:max-content;white-space:nowrap}
+  .hero-media{inline-size:100%;max-inline-size:100%;margin:0;height:clamp(330px,48svh,520px)}
+  .hero-media img{inline-size:100%;block-size:100%;object-fit:cover}
+
+  /* Construction story */
+  .build-story,.build-sticky{inline-size:100%;overflow:clip}
+  .build-copy{left:var(--mobile-pad);right:var(--mobile-pad);max-inline-size:none;container-type:inline-size}
+  .build-copy h2{inline-size:100%;max-inline-size:100%;font-size:clamp(36px,13.2cqw,50px);line-height:.87}
+  .stage-copy{inline-size:min(100%,360px);max-inline-size:100%}
+
+  /* General sections */
+  .section,.projects,.quote{inline-size:100%;padding-inline:var(--mobile-pad);overflow:clip}
+  .section-head{inline-size:100%;min-inline-size:0;container-type:inline-size}
+  .section-head>*{min-inline-size:0;max-inline-size:100%}
+  .section-head h2{inline-size:100%;font-size:clamp(36px,13.2cqw,50px);line-height:.89;letter-spacing:-.055em}
+
+  .service-row,.service-copy,.project-shell,.project-card,.project-info,.project-meta{min-inline-size:0;max-inline-size:100%}
+
+  /* Comparison: size the before image from the comparison container, never 100vw. */
+  .compare{inline-size:100%;max-inline-size:100%;container-type:inline-size;overflow:hidden}
+  .compare-before{max-inline-size:100%;overflow:hidden}
+  .compare-before img{inline-size:100cqw!important;max-inline-size:none!important}
+  .transformation .section-head h2{font-size:clamp(27px,10.7cqw,39px)!important;line-height:.92!important;letter-spacing:-.045em!important}
+
+  /* Philosophy */
+  .philosophy{display:block;inline-size:100%;overflow:clip}
+  .philosophy-copy{inline-size:100%;padding-inline:var(--mobile-pad);container-type:inline-size}
+  .philosophy-copy>*{max-inline-size:100%;min-inline-size:0}
+  .philosophy h2{inline-size:100%;font-size:clamp(33px,11.8cqw,44px);line-height:.9}
+  .philosophy>img{inline-size:100%;max-inline-size:100%;object-fit:cover}
+
+  /* Process / capability */
+  .process-list{inline-size:100%;max-inline-size:100%;min-inline-size:0;margin-left:0}
+  .process-list li{min-inline-size:0;grid-template-columns:42px minmax(0,1fr)}
+  .capability-grid{inline-size:100%;max-inline-size:100%;min-inline-size:0;grid-template-columns:repeat(2,minmax(0,1fr));overflow:hidden}
+  .capability-grid span{min-inline-size:0;overflow-wrap:break-word}
+  .capability .section-head h2{font-size:clamp(27px,10.4cqw,38px)!important;line-height:.92!important;letter-spacing:-.045em!important}
+
+  /* Quote / closing */
+  .quote-head,.quote-form{inline-size:100%;max-inline-size:100%;min-inline-size:0}
+  .quote-head{container-type:inline-size}
+  .quote h2{inline-size:100%;font-size:clamp(40px,14cqw,56px);line-height:.86}
+  .final-copy{left:var(--mobile-pad);right:var(--mobile-pad);max-inline-size:none;container-type:inline-size}
+  .final-copy h2{inline-size:100%;font-size:clamp(34px,12cqw,48px);line-height:.88}
+
+  /* Fixed mobile CTA always equals visual viewport width. */
+  .mobile-contact{inset-inline:0!important;inline-size:100%!important;max-inline-size:100%!important}
+}
+
+@media (max-width: 380px){
+  .hero h1{font-size:clamp(40px,13.6cqw,52px)}
+  .hero-actions{grid-template-columns:1fr;align-items:start}
+  .hero-actions .text-action{justify-self:start}
+  .capability-grid{grid-template-columns:1fr}
+}
