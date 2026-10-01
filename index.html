@@ -9,7 +9,7 @@
   <title>Northline Build Co. | Building What Comes Next</title><link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" as="image" href="assets/sequence/desktop/01-complete-daylight.webp" media="(min-width: 701px)">
   <link rel="preload" as="image" href="assets/sequence/mobile/01-complete-daylight.webp" media="(max-width: 700px)">
-  <link rel="stylesheet" href="v2-responsive.css?v=3">
+  <link rel="stylesheet" href="v2-responsive.css?v=4">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -60,7 +60,7 @@
     <section class="build-story" data-build-story aria-labelledby="build-title">
       <div class="build-sticky">
         <div class="build-frames" aria-hidden="true" data-build-frames>
-          <img class="build-frame is-active" data-stage="0" data-desktop="assets/sequence/desktop/01-complete-daylight.webp" data-mobile="assets/sequence/mobile/01-complete-daylight.webp" alt="">
+          <img class="build-frame is-active" data-stage="0" src="assets/sequence/desktop/01-complete-daylight.webp" data-desktop="assets/sequence/desktop/01-complete-daylight.webp" data-mobile="assets/sequence/mobile/01-complete-daylight.webp" alt="">
           <img class="build-frame" data-stage="1" data-desktop="assets/sequence/desktop/02-blueprint-overlay.webp" data-mobile="assets/sequence/mobile/02-blueprint-overlay.webp" alt="">
           <img class="build-frame" data-stage="2" data-desktop="assets/sequence/desktop/03-blueprint.webp" data-mobile="assets/sequence/mobile/03-blueprint.webp" alt="">
           <img class="build-frame" data-stage="3" data-desktop="assets/sequence/desktop/04-site.webp" data-mobile="assets/sequence/mobile/04-site.webp" alt="">
@@ -95,7 +95,7 @@
     </section>
 
     <section class="projects" id="projects">
-      <div class="section-head dark-head"><p class="section-no">04 / PROJECTS</p><h2>BUILT WORK.</h2><p>Real spaces. Thoughtful construction. Built to last.</p></div>
+      <div class="section-head dark-head"><p class="section-no">04 / PROJECTS</p><h2>BUILT WORK.</h2><p>Selected residential and renovation concepts, presented one project at a time.</p></div>
       <div class="project-shell" data-projects>
         <button class="project-arrow prev" type="button" aria-label="Previous project">←</button>
         <div class="project-track" data-project-track>
@@ -111,8 +111,8 @@
           </article>
           <article class="project-card">
             <img src="assets/service-new-build.jpg" alt="Northline Workspace" loading="lazy">
-            <div class="project-info"><div><p>03 / COMMERCIAL</p><h3>NORTHLINE WORKSPACE</h3></div><span>CAPE TOWN</span></div>
-            <div class="project-meta"><span>Commercial concept</span><span>Demo project*</span><span>Workspace</span></div>
+            <div class="project-info"><div><p>03 / RESIDENTIAL</p><h3>GARDEN HOUSE</h3></div><span>CAPE TOWN</span></div>
+            <div class="project-meta"><span>New build concept</span><span>Demo project*</span><span>Residential</span></div>
           </article>
         </div>
         <button class="project-arrow next" type="button" aria-label="Next project">→</button>
@@ -128,6 +128,7 @@
         <div class="compare-before" data-before><img src="assets/constantia-before.jpg" alt="Home before renovation" loading="lazy"></div>
         <span class="compare-tag before">BEFORE</span><span class="compare-tag after">AFTER</span>
         <button class="compare-handle" type="button" aria-label="Drag to compare before and after" data-compare-handle><span>↔</span></button>
+        <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Before and after comparison" data-compare-range>
       </div>
       <div class="transform-meta"><div><h3>HOUSE RIDGE</h3><p>Cape Town / Renovation</p></div><p>Existing structure retained. Interior rebuilt and extended.</p></div>
     </section>
@@ -180,7 +181,6 @@
 
   <div class="mobile-contact" data-mobile-contact><button type="button" data-demo-whatsapp>WhatsApp</button><a href="#quote">Get Quote</a></div>
   <div class="toast" role="status" aria-live="polite" data-toast>Demo website — connect the client's WhatsApp number here.</div>
-  <script src="v2.js?v=3" defer></script>
-  <script src="responsive-fit.js?v=3" defer></script>
+  <script src="v2.js?v=4" defer></script>
 </body>
 </html>
