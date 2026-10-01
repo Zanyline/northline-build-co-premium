@@ -255,3 +255,33 @@ body{background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-s
 @media (min-width:341px) and (max-width:800px){
   .brand-copy small{display:inline}
 }
+
+/* =========================================================
+   MOBILE HORIZONTAL-OVERFLOW FIX — 2026-10-01
+   Secondary pages use the same hard viewport boundaries as homepage.
+   ========================================================= */
+@media (max-width:800px){
+  html{width:100%;max-width:100%;overflow-x:hidden!important}
+  body{width:100%;max-width:100%;min-width:0;overflow-x:hidden!important;position:relative}
+  .page-main{width:100%;max-width:100%;min-width:0;overflow-x:hidden!important}
+
+  .site-header{box-sizing:border-box;width:100%;max-width:100%;min-width:0;gap:8px!important;left:0;right:0}
+  .brand{min-width:0;max-width:calc(100% - 52px);overflow:hidden}
+  .brand-copy{min-width:0;white-space:nowrap}
+  .mobile-nav{max-width:calc(100% - 24px)}
+
+  .page-hero,.page-hero-copy,.page-hero-image,.page-section,.page-section>.inner,
+  .split-media,.split-copy,.project-cta,.site-footer,.thanks-page{
+    width:100%;max-width:100%;min-width:0
+  }
+
+  .page-main h1,.page-main h2,.page-main h3,.thanks-page h1,.project-cta h2{
+    max-width:100%;min-width:0;overflow-wrap:anywhere;word-break:normal
+  }
+
+  .detail-band,.detail-band .inner,.project-index,.project-story,.gallery-two,
+  .project-challenge,.process-long,.about-story,.principles,.enquiry-shell,
+  .full-enquiry,.form-grid{max-width:100%;min-width:0;overflow-x:hidden}
+
+  .mobile-action-bar{left:0!important;right:0!important;width:100%!important;max-width:100%!important}
+}

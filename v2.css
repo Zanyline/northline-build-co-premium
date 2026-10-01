@@ -185,3 +185,60 @@
 @media (min-width:341px) and (max-width:700px){
   .wordmark span{display:inline}
 }
+
+/* =========================================================
+   MOBILE HORIZONTAL-OVERFLOW FIX — 2026-10-01
+   Prevents Samsung/Chrome horizontal panning and keeps every
+   content section inside the visual viewport.
+   ========================================================= */
+@media (max-width:700px){
+  html{width:100%;max-width:100%;overflow-x:hidden!important}
+  body{width:100%;max-width:100%;min-width:0;overflow-x:hidden!important;position:relative}
+  main{display:block;width:100%;max-width:100%;min-width:0;overflow-x:hidden!important}
+
+  /* Header was retaining the desktop 34px flex gap. On narrow phones that
+     made the fixed header wider than the viewport. */
+  .topbar{box-sizing:border-box;width:100%;max-width:100%;min-width:0;gap:8px!important;left:0;right:0}
+  .wordmark{min-width:0;max-width:calc(100% - 52px);overflow:hidden}
+  .wordmark strong,.wordmark span{flex:0 0 auto}
+  .menu-btn{margin-left:auto!important}
+  .mobile-menu{width:100%;max-width:100%;overflow-x:hidden}
+
+  /* Clamp every major homepage region to the viewport. */
+  .hero,.build-story,.build-sticky,.section,.projects,.philosophy,.process,
+  .capability,.quote,.final-cta,.footer{width:100%;max-width:100%;min-width:0}
+
+  /* Long architectural display words must never create document width. */
+  .hero h1,.build-copy h2,.section-head h2,.philosophy h2,.quote h2,.final-copy h2,
+  .service-copy h3,.project-info h3,.process-list h3{
+    max-width:100%;min-width:0;overflow-wrap:anywhere;word-break:normal
+  }
+
+  /* These two headings contain a single very long word. Keep the whole word
+     readable rather than allowing it to push the page sideways. */
+  .transformation .section-head h2,
+  .capability .section-head h2{
+    font-size:clamp(29px,8.2vw,34px)!important;
+    line-height:.93!important;
+    letter-spacing:-.045em!important;
+    overflow-wrap:normal;
+    word-break:normal
+  }
+
+  .capability-grid{max-width:100%;overflow:hidden}
+  .capability-grid span{min-width:0;overflow-wrap:anywhere}
+
+  /* Keep edge-to-edge media edge-to-edge without increasing scrollWidth. */
+  .hero-media{max-width:none}
+  .compare,.compare-before{max-width:100%;overflow:hidden}
+  .compare-before img{max-width:none}
+
+  /* Fixed conversion bar should always match the viewport, even after zoom/
+     orientation changes. */
+  .mobile-contact{left:0!important;right:0!important;width:100%!important;max-width:100%!important}
+}
+
+@media (max-width:360px){
+  .transformation .section-head h2,
+  .capability .section-head h2{font-size:29px!important}
+}
