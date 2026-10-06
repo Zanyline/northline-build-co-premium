@@ -1,0 +1,11 @@
+.git
+.github
+node_modules
+*.zip
+netlify.toml
+CLOUDFLARE-DEPLOY.md
+INTERACTION-FIXES-V4.md
+RESPONSIVE-V3.md
+_headers
+.assetsignore
+wrangler.jsonc
