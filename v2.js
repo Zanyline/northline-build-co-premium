@@ -66,19 +66,26 @@
   const timelineStops = [0, 0.07, 0.18, 0.31, 0.43, 0.56, 0.69, 0.81, 0.92, 1];
   const lowFrames = [0,1,2,3,5,7,9];
   const activeFrames = tier === 'low' ? lowFrames : frames.map((_, i) => i);
-  // Portrait phones use the portrait sequence; landscape/tablet/desktop always use 16:9 desktop frames.
+  // Smooth sequence mode: keep the V2.1 crossfade behaviour and preload the
+  // active frame set early so fast scrolling does not wait for image downloads.
+  // Portrait phones use portrait art; landscape/tablet/desktop use desktop art.
   const mobile = innerWidth < 700 && innerHeight >= innerWidth;
   frames.forEach((img, i) => {
     img.style.opacity = i === 0 ? '1' : '0';
-    if(i===0){
-      img.src = mobile ? img.dataset.mobile : img.dataset.desktop;
-      buildFrames?.style.setProperty('--active-build-frame', `url("${img.src}")`);
-      return;
-    }
     if(tier==='low' && !activeFrames.includes(i)) return;
-    const load = () => { if(!img.src) img.src = mobile ? img.dataset.mobile : img.dataset.desktop; };
-    if('requestIdleCallback' in window) requestIdleCallback(load,{timeout:2200+i*120}); else setTimeout(load,600+i*90);
+    const src = mobile ? img.dataset.mobile : img.dataset.desktop;
+    if(!src) return;
+    img.decoding = 'async';
+    img.loading = 'eager';
+    img.src = src;
+    // Decode in the background where supported. This warms the next frames
+    // without blocking first paint.
+    if(i > 0 && typeof img.decode === 'function') img.decode().catch(()=>{});
   });
+  // Keep the atmospheric side-fill static instead of repainting a blurred
+  // full-screen image at every stage boundary. The foreground frames still
+  // crossfade continuously exactly as before.
+  if(frames[0]?.src) buildFrames?.style.setProperty('--active-build-frame', `url("${frames[0].src}")`);
 
   let raf=0, current=-1;
   function getTimelineIndex(progress){
@@ -122,9 +129,6 @@
     setFrameBlend(stageFloat);
     if(nearest!==current){
       current=nearest;
-      const visualFrame = frames[nearest] || frames[0];
-      const visualSrc = mobile ? visualFrame?.dataset.mobile : visualFrame?.dataset.desktop;
-      if(visualSrc) buildFrames?.style.setProperty('--active-build-frame', `url("${visualSrc}")`);
       if(stageTitle) stageTitle.textContent=stages[nearest][0];
       if(stageDesc) stageDesc.textContent=stages[nearest][1];
       const step = nearest<=2?0:nearest<=4?1:nearest<=6?2:nearest<=8?3:4;
